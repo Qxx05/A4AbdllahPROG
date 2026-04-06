@@ -7,3 +7,5 @@ function ErrorMessage(props) {
         </div>
     )
 }
+
+export default ErrorMessage;
