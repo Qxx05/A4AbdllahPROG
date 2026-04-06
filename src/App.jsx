@@ -52,7 +52,38 @@ function App() {
     });
 
     // forecast (bonus)
+    fetch("https://api.openweathermap.org/data/2.5/forecast?q=" + searchCity + "&appid=" + apiKey + "&units=metric")
 
-  })
+    .then(function (response) {
+      return response.json();
+    })
+
+    .then(function (data) {
+      setForecast(data.list.slice(0, 5));
+    });
+
+    setLoading(false);
+  }, [searchCity]);
+
+  return (
+    <div className="app">
+
+      <h1>Weather App</h1>
+
+      <SearchBar onSearch={handleSearch} />
+
+      {loading && <Loading />}
+
+      {error !== "" && <ErrorMessage message={error} />}
+
+      {!loading && error === "" && weather === null && (
+        <p>Search for a city</p>
+      )}
+
+      {weather !== null && <WeatherCard weather={weather} />}
+
+      {forecast.length > 0 && <ForecastList forecast={forecast} />}
+    </div>
+  );
 }
-export default App
+export default App;
