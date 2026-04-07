@@ -5,7 +5,7 @@ function WeatherCard(props) {
 
     return (
         <div className="weather card">
-            <h2>{weather.name}</h2>
+            <h2 id="city-name">{weather.name}</h2>
 
             <p>
                 <strong>Temperature:</strong> {weather.main.temp} °C

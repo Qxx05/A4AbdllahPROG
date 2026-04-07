@@ -6,7 +6,7 @@ function ForecastList(props) {
     return (
         <div>
 
-            <h2>5 day Forecast</h2>
+            <h2 id="forecast-length">5 day Forecast</h2>
 
             {forecast.map(function(item) {
 
